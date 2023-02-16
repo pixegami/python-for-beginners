@@ -104,4 +104,6 @@ python hello.py
 
 Once you've done that, you should see the output `Hello World!` 👋  in your terminal.
 
-🎉 Congratulations, you've written and run your first Python script!
+---
+
+🎉 Congratulations, you've written and run your first Python script! Keep going! 👉

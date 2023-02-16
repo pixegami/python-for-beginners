@@ -23,7 +23,7 @@ print(z)
 
 ## Naming Variables
 
-You can name your variables in Python *almost* anything you want. 
+You can name your variables in Python _almost_ anything you want.
 
 For instance, both `user_name` and `userName` are valid Python variable names, but one is "better" than the other because it uses "snake case" (lower case with underscores), which aligns with Python naming conventions.
 
@@ -125,13 +125,11 @@ quantity = 8
 order_type = "BUY"
 ```
 
-## Data Types
+## Primitive Data Types
 
 Now let's take a closer look at these 'values.' They are data, or basically - ways of representing information about the world.
 
 There are four primitive data types in Python. And these are the building blocks to more complex data structures that we'll see later.
-
-### Primitive Data Types
 
 ```python
 int      # Integer (whole numbers)
@@ -140,9 +138,7 @@ str      # String (literals, words, text)
 bool     # Boolean (either True or False)
 ```
 
-And a couple of extra things to be aware of with data types: Strings are case-sensitive. And boolean values (`True` and `False`) need to be capitalised.
-
-### 👉 Examples
+And a couple of extra things to be aware of with data types: Strings are case-sensitive. And boolean values (`True` and `False`) need to be capitalised. Here's some examples:
 
 ```python
 x = 8                # int
@@ -151,7 +147,7 @@ name = "Jack"        # str
 likes_coffee = True  # bool
 ```
 
-The reason for having these four distinct types of data is to ensure that the data is stored in the most efficient, and accurate, way possible. 
+The reason for having these four distinct types of data is to ensure that the data is stored in the most efficient, and accurate, way possible.
 
 Each data type requires a different amount of memory for storage, and having the wrong data type could potentially lead to inaccuracies.
 
@@ -178,19 +174,6 @@ print("2" + "2") # "22"
 
 Strings are characters, and have no numerical value. So when I add them, it treats them as if we've just cut letters out of the newspaper and pasted them together like you see in movie ransom notes.
 
-## Exercise: Variables and Datatypes
-
-### 🧩 What Datatypes Would You Use?
-
-Here's a simple exercise to help you practice your understanding of data types and variables. Say you were making an online store, and you needed to represent the following information:
-
-- ✏️ Item Name
-- ✏️ Quantity
-- ✏️ Price
-- ✏️ In Stock?
-
-Which variable names and datatypes would you use for them?
-
 ## Printing in Python
 
 There's also several ways to "print" information in Python. Printing is how we make some information appear on the screen
@@ -209,6 +192,7 @@ print(x)  # 12
 ```
 
 We can also print multiple values at once:
+
 ```python
 x = 12
 y = 24
@@ -229,3 +213,19 @@ x = 12
 print(f"The value of x is {x}")
 # The value of x is 12
 ```
+
+---
+
+# Coding Exercise 02: Variables
+
+Write a program that prints out the details of an item in a shop.
+You need to model the following information:
+
+- ✏️ Item Name (e.g. "apple")
+- ✏️ Quantity (e.g. 4)
+- ✏️ Price (e.g. $0.50)
+- ✏️ In Stock? (e.g. Yes/No)
+
+Write a short Python script to store the information in variables, and then print it out in a nice format.
+
+When you've had a go, see the [solution here!](./solution_02.py).

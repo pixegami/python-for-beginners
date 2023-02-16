@@ -1,6 +1,6 @@
 # 04: Conditions
 
-Conditions in Python are boolean expressions used to control the flow of the program. These expressions usually have a value of either `True` or `False`. 
+Conditions in Python are boolean expressions used to control the flow of the program. These expressions usually have a value of either `True` or `False`.
 
 For example, we could have a variable `is_morning` that is `True` if it is morning and `False` if it is not morning. We could then use this variable in a condition to determine what we should drink:
 
@@ -20,7 +20,7 @@ Here's an example of an `if` statement.
 ```python
 is_raining = True
 if is_raining:
-	print("It's raining!")
+	print("It's raining! 💧")
 ```
 
 If this expression evaluates to `True`, the code in this scope will be executed.
@@ -34,9 +34,9 @@ To demonstrate that, we can add another print statement here, unindented. This i
 ```python
 is_raining = False
 if is_raining:
-	print("It's raining!")
+	print("It's raining! 💧")  # This will not be reached
 
-print("Have a nice day!")
+print("Have a nice day! 😀") # This will be reached!
 ```
 
 And now the code path that gets executed will depend on whether it's raining or not. Notice how we still reach the line at the end no matter which code path gets executed.
@@ -51,9 +51,9 @@ And if it's raining we're going to drive. Otherwise we'll take the bicycle.
 # Route Planner
 is_raining = False
 if is_raining:
-	print("Drive to Destination")
+	print("Drive to Destination 🚗")
 else:
-	print("Cycle to Destination")
+	print("Cycle to Destination 🚲")
 
 ```
 
@@ -95,7 +95,7 @@ else:
 	print("🚲 Cycle to Destination")
 ```
 
-You can also include conditions with numerical values (and use them together with  comparison operators). For example, if we want to include cycling as an option only if the distance is between 1 and 10 km, we can add an `elif` statement like this:
+You can also include conditions with numerical values (and use them together with comparison operators). For example, if we want to include cycling as an option only if the distance is between 1 and 10 km, we can add an `elif` statement like this:
 
 ```python
 is_raining = False
@@ -108,3 +108,31 @@ elif distance_kms < 1:
 else:
 	print("🚲 Cycle to Destination")
 ```
+
+---
+
+# Coding Exercise 04: Conditions
+
+Writing a program for a ticketing system. The program should check the age and student status of customers and display the appropriate message based on these rules:
+
+- If customer is under 18 - entry is free.
+- If customer is a **student _or_ over 65** - entry is 50% discounted.
+- Everyone else pays 100%.
+
+Fill in the code (with if/else conditions) to make the program print the correct message for any given value of `customer_age` and `is_student`.
+
+```python
+customer_age = 24
+is_student = True
+
+# If customer is under 18 - entry is free.
+print("🎟️ Entry is FREE!")
+
+# If customer is a student or over 65 - entry is 50% discounted.
+print("🎟️ Entry is 50% off!")
+
+# Everyone else pays 100%.
+print("🎟️ Entry is full-price!")
+```
+
+Once you are done, compare your answer to the [solution here](./solution_04.py).

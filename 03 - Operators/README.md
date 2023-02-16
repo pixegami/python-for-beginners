@@ -49,7 +49,7 @@ print(5 / 3)
 
 ### Exponent and Modulo Operators
 
-The less commonly used ones are the exponent operator (a double * , which is when you want to raise something to the power of 2 (or any number).
+The less commonly used ones are the exponent operator (a double \* , which is when you want to raise something to the power of 2 (or any number).
 
 ```python
 10 ** 2  # == 100
@@ -109,14 +109,14 @@ x *= 2
 ```
 
 ## Comparison Operators
-  
-Comparison operators are how we check the relationship between two or more values. Let's imagine we want to build a food ordering app in Python. 
+
+Comparison operators are how we check the relationship between two or more values. Let's imagine we want to build a food ordering app in Python.
 
 We'll need comparison operators to do things like:
 
-- Check if the user's order is above the minimum order amount 
-- See if the item they ordered is available in their location 
-- See if the user's order matches the restaurant's inventory 
+- Check if the user's order is above the minimum order amount
+- See if the item they ordered is available in their location
+- See if the user's order matches the restaurant's inventory
 
 We can use comparison operators to compare values and determine if they match or not. Here's a list of common comparison operators in Python:
 
@@ -137,7 +137,7 @@ y = 5
 print(x == y)  # False
 ```
 
-### Expression
+## Expression
 
 The technical term for a line like this in Python, is an "expression"
 
@@ -147,11 +147,11 @@ x == y
 
 An expression is a combination of values, variables, operators, and/or functions that results in a single value. In this case, the expression is a comparison operator that checks if the value of x is equal to the value of y.
 
-You won't know the result of this expression just by looking at this line on its own, unless you know the values of x and y at the exact time that this line is *evaluated* by Python.
+You won't know the result of this expression just by looking at this line on its own, unless you know the values of x and y at the exact time that this line is _evaluated_ by Python.
 
 When you run this program and you get to this line, Python evaluates this expression with the information it has.
 
-### Evaluation
+## Evaluation
 
 ```python
 result = x == y
@@ -165,8 +165,6 @@ So here in this example, we can say "the expression evaluates to `True`".
 ## Logical Operators
 
 Logical operators are used to compare the relationship between two or more Boolean expressions and return a Boolean value of True or False.
-
-### Logical Operators
 
 ```python
 x and y   # AND
@@ -192,7 +190,7 @@ is_far = True
 should_drive = is_raining or is_far
 ```
 
-Now you can combine these operators and these expressions to create really complex rules systems. So like in this previous example, how can I well whether  something is far away?
+Now you can combine these operators and these expressions to create really complex rules systems. So like in this previous example, how can I well whether something is far away?
 
 ```python
 is_raining = False
@@ -203,9 +201,20 @@ should_drive = is_raining or is_far
 should_drive = is_raining or (distance_meters > 1000)
 ```
 
-You also have a negation operator (`not`), so that's if you want to check whether the opposite of something is true.
+---
+
+# Coding Exercise 03: Operators
+
+Can you write a program that calculates [compound interest](https://g.co/kgs/4PYrPD)? If we deposit $240,000 into a bank account with an annual interest rate of 5%, how much will we have after 2 years? Assume that the interest is compounded annually.
 
 ```python
-is_raining = True
-should_bring_umbrella = not is_raining
+principal = 240_000
+annual_rate = 0.05
+years = 2
+
+new_value = 0  # TODO: Calculate the compound interest
 ```
+
+The challenge of this exercise is to find the formula for compound interest, and translate it into Python using the correct operators and the correct order of precedence.
+
+You should get something close to `264600`. Once you've had a go, you can check out the [solution here](./solution_03.py).

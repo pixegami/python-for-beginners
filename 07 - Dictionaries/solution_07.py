@@ -17,3 +17,5 @@ total_expenses["entertainment"] = 20
 # Increase "food" expense (by $12)
 total_expenses["food"] += 12
 # OR total_expenses["food"] = total_expenses.get("food", 0) + 12
+
+print(total_expenses)

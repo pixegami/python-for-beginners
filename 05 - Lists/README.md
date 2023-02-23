@@ -131,7 +131,7 @@ You can also **_slice_** a list using the square bracket notation. This will giv
 ```python
 my_list = [2, 4, 6, 0, 1]
 sliced_list = my_list[0:3]
-print(my_list)  # [2, 4, 6]
+print(sliced_list)  # [2, 4, 6]
 ```
 
 ```python

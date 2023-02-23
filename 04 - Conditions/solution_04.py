@@ -1,5 +1,5 @@
-customer_age = 24
-is_student = True
+customer_age = 70
+is_student = False
 
 if customer_age < 18:
     print("🎟️ Entry is FREE!")

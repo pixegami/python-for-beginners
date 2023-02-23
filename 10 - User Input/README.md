@@ -3,9 +3,10 @@
 Ultimately, we write Python code to do useful things for people. So we need a way to get input data from the outside world somehow—whether that's a direct input they type into the console, a local file (like an Excel or PDF file), or over the internet.
 
 ### Ways to Get User Input
-- 👉  Direct User Input
-- 👉  Local Files
-- 👉  Over the Internet
+
+- 👉 Direct User Input
+- 👉 Local Files
+- 👉 Over the Internet
 
 ## Direct User Input
 
@@ -56,7 +57,7 @@ Although it is out of our scope for this tutorial series, let's take a quick loo
 
 ## CLI Arguments
 
-It's possible to pass in arguments to the Python program when you run it from the command line. This is called "command line arguments". 
+It's possible to pass in arguments to the Python program when you run it from the command line. This is called "command line arguments".
 
 The arguments are stored in the `sys.argv` list and can be used in the program.
 
@@ -119,7 +120,11 @@ print(data["location"])  # Sydney, Australia
 Write a program that prompts the user for their name and age, and save that information into a file called `user_info.txt`.
 
 ```python
-[insert]
+# TODO: Get the user's name and age.
+# name = ...
+# age = ...
+
+# TODO: Write them to a file called user_info.txt
 ```
 
 Once you've given it a go, check out the [solution here](./solution_10.py).

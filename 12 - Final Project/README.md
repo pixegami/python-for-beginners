@@ -9,7 +9,7 @@ It'll also tell the user how much they can spend for the rest of the month to st
 ## 🎯 App Requirements
 
 1. Ask the user to add an expense (name, category, amount)
-2. Save expense entries to a file
+2. Save expense entries to a `.csv` file.
 3. Read the file to summarise the expense totals for that month
 4. Show the user how much they can spend for the rest of the month (to stay in budget)
 
@@ -30,3 +30,11 @@ The final project will consist of 2 files:
 1. Create the `expense.py` class.
 2. Create the `expense_tracker.py` file and write the main logic for the app.
 3. Run the app to test it.
+
+## Example Screenshot
+
+![Expense Tracker App](expense_cli.png)
+
+You should also be able to import your generated CSV to apps like Excel and Google Drive.
+
+![Expense Tracker Google Drive](expense_drive.png)

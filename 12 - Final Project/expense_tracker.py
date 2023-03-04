@@ -1,48 +1,27 @@
-from datetime import datetime
 from expense import Expense
+import calendar
+import datetime
 
 
 def main():
+    print(f"🎯 Running Expense Tracker!")
+    expense_file_path = "expenses.csv"
+    budget = 2000
 
-    # Ask the user to add an expense.
-    expense = get_expense()
-    print(f"You've added {expense} to your expenses.")
+    # Get user input for expense.
+    expense = get_user_expense()
 
-    # Save the expense to a file.
-    expenses = save_expense(expense)
+    # Write their expense to a file.
+    save_expense_to_file(expense, expense_file_path)
 
-    # Show the user the current expense breakdown.
-    number_of_expenses = len(expenses)
-    total_expenses = sum([expense.amount for expense in expenses])
-    print(f"You have {number_of_expenses} expenses totalling ${total_expenses:.2f}.")
-
-    # Show expenses by category.
-    show_expense_by_category(expenses)
-
-    # Show the user a rough estimate of how much they have left to spend per day.
-    show_budget(total_expenses)
+    # Read file and summarize expenses.
+    summarize_expenses(expense_file_path, budget)
 
 
-def save_expense(expense):
-    current_date = datetime.now()
-    expense_filename = f"expenses_{current_date.year}_{current_date.month}.csv"
-
-    with open(expense_filename, "a") as file:
-        file.write(f"{expense.name},{expense.category},{expense.amount}\n")
-
-    # Read the expenses from the file.
-    expenses = []
-    with open(expense_filename, "r") as file:
-        for line in file:
-            name, category, amount = line.strip().split(",")
-            expenses.append(Expense(name, category, float(amount)))
-    return expenses
-
-
-def get_expense():
-    print("Welcome to the expense tracker! 🤑")
+def get_user_expense():
+    print(f"🎯 Getting User Expense")
     expense_name = input("Enter expense name: ")
-    expense_amount = float(input("Enter expense amount ($): "))
+    expense_amount = float(input("Enter expense amount: "))
     expense_categories = [
         "🍔 Food",
         "🏠 Home",
@@ -52,46 +31,67 @@ def get_expense():
     ]
 
     while True:
-        print("Select a category:")
-        for index, category in enumerate(expense_categories):
-            print(f"{index + 1}. {category}")
+        print("Select a category: ")
+        for i, category_name in enumerate(expense_categories):
+            print(f"  {i + 1}. {category_name}")
 
-        category_index = int(input("Enter a category number: ")) - 1
-        if category_index in range(len(expense_categories)):
-            break
+        value_range = f"[1 - {len(expense_categories)}]"
+        selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
+
+        if i in range(len(expense_categories)):
+            selected_category = expense_categories[selected_index]
+            new_expense = Expense(
+                name=expense_name, category=selected_category, amount=expense_amount
+            )
+            return new_expense
         else:
-            print("Invalid category. Please try again.")
-
-    expense_category = expense_categories[category_index]
-    expense = Expense(expense_name, expense_category, expense_amount)
-    return expense
+            print("Invalid category. Please try again!")
 
 
-def show_budget(total_expenses):
-    print("\n💵 Budget")
-    MONTHLY_BUDGET = 2000
-    money_left = MONTHLY_BUDGET - total_expenses
-    money_left_str = green(f"${money_left:.2f}")
-
-    if money_left < 0:
-        print(f"You're over budget by {money_left_str} this month.")
-    else:
-        print(f"You have {money_left_str} left to spend this month.")
-        days_left = 30 - datetime.now().day
-        money_per_day = money_left / days_left
-        money_per_day_str = green(f"${money_per_day:.2f}")
-        print(f"That's roughly {money_per_day_str} per day.")
+def save_expense_to_file(expense: Expense, expense_file_path):
+    print(f"🎯 Saving User Expense: {expense} to {expense_file_path}")
+    with open(expense_file_path, "a") as f:
+        f.write(f"{expense.name},{expense.amount},{expense.category}\n")
 
 
-def show_expense_by_category(expenses):
-    print("\n📈 Expenses by category")
-    categories = set([expense.category for expense in expenses])
-    for category in categories:
-        category_expenses = [
-            expense for expense in expenses if expense.category == category
-        ]
-        category_total = sum([expense.amount for expense in category_expenses])
-        print(f"{category}: ${category_total:.2f}")
+def summarize_expenses(expense_file_path, budget):
+    print(f"🎯 Summarizing User Expense")
+    expenses: list[Expense] = []
+    with open(expense_file_path, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            expense_name, expense_amount, expense_category = line.strip().split(",")
+            line_expense = Expense(
+                name=expense_name,
+                amount=float(expense_amount),
+                category=expense_category,
+            )
+            expenses.append(line_expense)
+
+    amount_by_category = {}
+    for expense in expenses:
+        key = expense.category
+        if key in amount_by_category:
+            amount_by_category[key] += expense.amount
+        else:
+            amount_by_category[key] = expense.amount
+
+    print("Expenses By Category 📈:")
+    for key, amount in amount_by_category.items():
+        print(f"  {key}: ${amount:.2f}")
+
+    total_spent = sum([x.amount for x in expenses])
+    print(f"💵 Total Spent: ${total_spent:.2f}")
+
+    remaining_budget = budget - total_spent
+    print(f"✅ Budget Remaining: ${remaining_budget:.2f}")
+
+    now = datetime.datetime.now()
+    days_in_month = calendar.monthrange(now.year, now.month)[1]
+    remaining_days = days_in_month - now.day
+
+    daily_budget = remaining_budget / remaining_days
+    print(green(f"👉 Budget Per Day: ${daily_budget:.2f}"))
 
 
 def green(text):

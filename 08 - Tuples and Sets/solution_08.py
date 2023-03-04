@@ -5,7 +5,7 @@ You have a set of your user's preferred foods, and sets of food being served at 
 Find the restaurant that best matches your user's food preferences.
 """
 
-food_preference = {"🍔", "🍕", "🍤"}
+food_preference = {"🍔", "🍕", "🍤", "🥦", "🥕"}
 
 restaurants = {
     "seafood_cove": {"🍤", "🍣", "🐟", "🦀"},
@@ -28,8 +28,6 @@ for restaurant_name, menu in restaurants.items():
         best_match_foods = common_foods
         best_match_restaurant = restaurant_name
 
-print(f"The best match is {best_match_restaurant} with {best_match_foods} matched foods.")
-
-
-
-
+print(
+    f"The best match is {best_match_restaurant} with {best_match_foods} matched foods."
+)

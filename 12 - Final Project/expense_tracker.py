@@ -38,7 +38,7 @@ def get_user_expense():
         value_range = f"[1 - {len(expense_categories)}]"
         selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
 
-        if i in range(len(expense_categories)):
+        if selected_index in range(len(expense_categories)):
             selected_category = expense_categories[selected_index]
             new_expense = Expense(
                 name=expense_name, category=selected_category, amount=expense_amount
